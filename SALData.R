@@ -62,7 +62,7 @@ s <- table(s_id)[match(unique(s_id), names(table(s_id)))]
   # имена значений вектора <- ID образцов || NAMES OF VECTOR VALUES <- SAMPLE IDs
 names(s) <- unique(s_id)
 
-# дата фрейм с данными НЕ куммулятивных распределений || DATAFRAME WITH ALL THE NON-CUMM DISTRIBUTIONS
+# дата фрейм с данными НЕ кумулятивных распределений || DATAFRAME WITH ALL THE NON-CUMULATIVE DISTRIBUTIONS
 gs_dist_all <- data.frame(gs)
 
 for(i in 1:length(dat)){
@@ -70,7 +70,7 @@ for(i in 1:length(dat)){
 }
 colnames(gs_dist_all) <- c('size um', fn)
 
-# дата фрейм с данными куммулятивных распределений || DATAFRAME WITH ALL THE CUMMULATIVE DISTRIBUTIONS
+# дата фрейм с данными кумулятивных распределений || DATAFRAME WITH ALL THE CUMULATIVE DISTRIBUTIONS
 gs_dist_cumm_all <- data.frame(gs)
 for(i in 1:length(dat)){
   gs_dist_cumm_all <- cbind(gs_dist_cumm_all, dat[[i]][, 2])
@@ -85,7 +85,7 @@ start_col <- 2
   # COLUMN NUMBERS RELATED TO THE BEGINNING OF EACH MEASUREMENT SERIES
 subset_from <- as.integer(c(start_col, cumsum(s)+start_col))
 
-#датафрейм для осредненных не куммулятивных распределений
+#датафрейм для осредненных не кумулятивных распределений
 gs_mean_dist <- data.frame(gs)
 for(i in 1:length(s)){
   from <- subset_from[i]
